@@ -4,7 +4,6 @@ SerialEngine::~SerialEngine(){}
 
 void SerialEngine::setup()
 {
-    qDebug()<<"Setup"<<endl;
     serialPort = new QSerialPort;
 
     QObject::connect(serialPort, SIGNAL(readyRead()), this, SLOT(readSerialData()));
@@ -20,7 +19,6 @@ void SerialEngine::setup()
 
 void SerialEngine::readSerialData()
 {
-    qDebug()<<"Luetaan kortti"<<endl;
     static QByteArray byte;
     byte = serialPort->readAll();
 
